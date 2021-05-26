@@ -30,7 +30,7 @@ domainArray.forEach(function (domain) {
 })
 
 // sorting the domains by frequency
-let dictionaryArr = Object.keys(domainFrequencyDictionary);
+const dictionaryArr = Object.keys(domainFrequencyDictionary);
 dictionaryArr.sort(function (domainA, domainB) {
    return domainFrequencyDictionary[domainB] - domainFrequencyDictionary[domainA];
 
@@ -46,7 +46,7 @@ const domainArrayTop = domainArray.map(function (domain) {
 });
 
 // making a dictionary of the frequency of the high level domains.
-let topLevelDictionary = {};
+const topLevelDictionary = {};
 domainArrayTop.forEach(function (domain) {
     if (topLevelDictionary.hasOwnProperty(domain)) {
         topLevelDictionary[domain]++;
@@ -69,7 +69,7 @@ input.question(`Please enter frequency: `, freq => {
 })
 
 
-
+// Printing the user specified domains 
 function user(userFrequency) {
     let frequentDomains = dictionaryArr.filter(function (domain) {
         return domainFrequencyDictionary[domain] > userFrequency
@@ -77,9 +77,3 @@ function user(userFrequency) {
     })
     console.log('Domains that appear more often than ' + userFrequency + ' times are: ' + frequentDomains.join(', '));
 }
-
-
-// regex to obtain all domains: @something
-// find index of appearance of "@"
-// remove all characters before it
-// document the rest in an object
