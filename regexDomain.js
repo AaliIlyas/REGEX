@@ -5,7 +5,6 @@ const input = require('readline').createInterface({
     output: process.stdout
   }); 
 
-
 // extracting emails into an emailArray
 const textArray = text.split(/\s+/);
 const emailArray = textArray.filter(function (word) {
@@ -38,8 +37,8 @@ dictionaryArr.sort(function (domainA, domainB) {
 // Obtaining a frequency dictionary of the high level domains using the existing dictionary.
 const topDomainFrequencyDictionary = {};
 dictionaryArr.forEach(function (domain) {
-    let dotPosition = domain.indexOf('.');
-    let currentTopDomain = domain.substring(0, dotPosition);
+    const dotPosition = domain.indexOf('.');
+    const currentTopDomain = domain.substring(0, dotPosition);
     if (topDomainFrequencyDictionary.hasOwnProperty(currentTopDomain)) {
         topDomainFrequencyDictionary[currentTopDomain] += domainFrequencyDictionary[domain];
     }
@@ -58,12 +57,7 @@ const domainArrayTop = domainArray.map(function (domain) {
  });
 //  console.log(domainArrayTop);
 
-// making a dictionary of the frequency of the high level domains.
-//const topLevelDictionary = {};
-
-
 console.log(topDomainFrequencyDictionary);
-
 
 // Asking the user to input frequency
   
@@ -74,8 +68,6 @@ input.question(`Please enter frequency: `, freq => {
     user(userFrequency);
     input.close();
 })
-
-// Github is updated (wooo!)
 
 // Printing the user specified domains 
 function user(userFrequency) {
