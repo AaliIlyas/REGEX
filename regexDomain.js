@@ -13,8 +13,8 @@ const emailArray = textArray.filter(function (word) {
 
 // extracting domains into domainArray
 const domainArray = emailArray.map(function(email) {
-    let ampersandIndex = email.indexOf('@');
-    return email.substring(ampersandIndex + 1);
+    let atIndex = email.indexOf('@');
+    return email.substring(atIndex + 1);
 });
 
 // making a dictionary of domains and their respective frequencies
