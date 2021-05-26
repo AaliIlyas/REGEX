@@ -14,18 +14,17 @@ input.question(`Please enter frequency:`, freq => {
     input.close()
   })
 
-console.log('This is your freq:' + userFrequency)
 
 // extracting emails into an textArray2
-let textArray = text.split(/\s+/);
+const textArray = text.split(/\s+/);
 
-let textArray2 = textArray.filter(function (word) {
+const emailArray = textArray.filter(function (word) {
     return word.match(/[\w+._]+@[\w]+.[\w.]+/);
 
 }); 
 
 // extracting domains into domainArray
-let domainArray = textArray2.map(function(email) {
+const domainArray = emailArray.map(function(email) {
     let ampersandIndex = email.indexOf('@');
     return email.substring(ampersandIndex + 1);
 });
@@ -49,7 +48,7 @@ let domainArray2 = domainArray.map(function (domain) {
     return domain.substring(0, dotPosition);
 });
 
-// making a dictionary of the frequency of the high level domains
+// making a dictionary of the frequency of the high level domains.
 let dictionary2 = {};
 domainArray2.forEach(function (domain) {
     if (dictionary2.hasOwnProperty(domain)) {
@@ -67,7 +66,6 @@ dictionaryArr.sort(function (domainA, domainB) {
    return dictionary[domainB] - dictionary[domainA];
 
 });
-
 // printing top 10 domanins
 console.log(dictionaryArr.slice(0, 10));
 
